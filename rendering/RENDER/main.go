@@ -25,7 +25,7 @@ func main() {
 	mux.HandleFunc("/html", func(w http.ResponseWriter, req *http.Request) {
 		// Assumes you have a template in ./templates called "example.tmpl"
 		// $ mkdir -p templates && echo "<h1>Hello {{.}}.</h1>" > templates/example.tmpl
-		r.HTML(w, http.StatusOK, "example", "Álvaro Salazar")
+		r.HTML(w, http.StatusOK, "example", "Álvaro Salazar Victorino")
 	})
 
 	http.ListenAndServe(":8080", mux)

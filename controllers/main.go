@@ -33,6 +33,14 @@ func (c *MyController) getData(rw http.ResponseWriter, r *http.Request) error {
 	return nil
 }
 
+func (c *MyController) Action(a Action) http.Handler {
+	return http.HandlerFunc(func(rw http.ResponseWriter, r *http.Request) {
+		if err := a(rw, r); err != nil {
+			c.HTML(w, http.StatusOK, "error", nil)
+		}
+	})
+}
+
 func main() {
 	c := &MyController{Render: render.New(render.Options{})}
 
